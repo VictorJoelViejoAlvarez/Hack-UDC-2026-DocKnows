@@ -1,0 +1,13 @@
+footer {
+  background: linear-gradient(135deg, #000000 20%, #5e247c 100%);
+  border-top: 3px solid #a261be;
+  text-align: center;
+  padding: 1em;
+}
+
+#footer-span {
+  color: #cfa8e3;
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,27 @@
+header {
+  align-items: center;
+  border-bottom: 5px solid #a261be;
+  display: flex;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: linear-gradient(135deg, #000000 20%, #78329c 100%);
+}
+
+#header-div-1 {
+  align-items: center;
+  display: flex;
+  width: max-content;
+  gap: 1em;
+}
+
+#app-logo {
+  height: 60px;
+  width: 60px;
+}
+
+#app-name {
+  color: #78329c;
+  margin: 0;
+}

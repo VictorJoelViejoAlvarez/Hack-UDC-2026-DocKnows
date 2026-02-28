@@ -1,0 +1,56 @@
+@import "../../common/styles/variables.css";
+
+.upload {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.drop-zone {
+  width: 400px;
+  height: 300px;
+  border: 2px dashed #ccc;
+  border-radius: 16px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.drop-zone:hover {
+  border-color: #a261be;
+  background-color: #f2e6ff;
+}
+
+.drop-zone.active {
+  border-color: #a261be;
+  background-color: #f2e6ff;
+}
+
+.upload-image {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.file-info {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.upload-button-back {
+  background-color: lightcoral;
+  border: none;
+  border-radius: var(--border-radius);
+}

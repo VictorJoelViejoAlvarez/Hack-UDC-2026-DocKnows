@@ -3,9 +3,25 @@ import "../styles/Upload.css";
 import { ButtonBack } from "../../common";
 
 function Upload() {
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorVisible, setErrorVisible] = useState(false);
+
   const [file, setFile] = useState(null);
   const [dragActive, setDragActive] = useState(false);
   const inputRef = useRef(null);
+
+  const showErrorMessage = () => {
+    setErrorMessage(true);
+    setErrorVisible(true);
+
+    setTimeout(() => {
+      setErrorVisible(false); // activa fade-out
+    }, 2500);
+
+    setTimeout(() => {
+      setErrorMessage(false); // desmonta después de animación
+    }, 3000);
+  };
 
   const handleFile = (selectedFile) => {
     if (selectedFile) {
@@ -37,13 +53,19 @@ function Upload() {
   };
 
   const uploadFile = () => {
-    return;
+    if (!file) {
+      showErrorMessage(true);
+      return;
+    }
   };
 
   return (
     <div className="upload">
       <div className="div-back-button">
         <ButtonBack className="upload-button-back" />
+        <button type="button" onClick={uploadFile}>
+          Error demo
+        </button>
         <button type="button" className="upload-button" onClick={uploadFile}>
           Upload file
         </button>
@@ -68,7 +90,15 @@ function Upload() {
 
       {file && (
         <div className="file-info">
-          <span>Archivo seleccionado: {file.name}</span>
+          <span>Selected file: {file.name}</span>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className={`upload-error ${errorVisible ? "show" : "hide"}`}>
+          <span className="upload-error-message">
+            ⚠️ An error occurred in the server during the upload ⚠️
+          </span>
         </div>
       )}
     </div>

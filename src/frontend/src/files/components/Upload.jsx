@@ -36,10 +36,17 @@ function Upload() {
     inputRef.current.click();
   };
 
+  const uploadFile = () => {
+    return;
+  };
+
   return (
     <div className="upload">
-      <div>
-        <ButtonBack className="upload-button-back"/>
+      <div className="div-back-button">
+        <ButtonBack className="upload-button-back" />
+        <button type="button" className="upload-button" onClick={uploadFile}>
+          Upload file
+        </button>
       </div>
       <div
         className={`drop-zone ${dragActive ? "active" : ""}`}

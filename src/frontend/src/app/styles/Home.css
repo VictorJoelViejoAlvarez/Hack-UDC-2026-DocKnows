@@ -22,13 +22,25 @@ main {
 }
 
 .upload-file-button {
-  background-color: var(--purple-color);
+  background-color: #a261be;
   border: none;
   border-radius: var(--border-radius);
   color: whitesmoke;
-  font-size: 14px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
+  font-size: var(--font-size);
+  padding: 6px 10px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    font-weight 0.2s ease,
+    transform 0.1s ease;
+}
+.upload-file-button:hover {
+  background-color: #8e4fad;
+  box-shadow: 0 4px 12px rgba(162, 97, 190, 0.4);
+  transform: scale(1.05);
+}
+.upload-file-button:active {
+  background-color: #7a4296;
+  box-shadow: none;
+  transform: scale(0.95);
 }

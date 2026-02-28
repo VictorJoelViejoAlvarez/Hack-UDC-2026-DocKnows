@@ -1,0 +1,12 @@
+alembic==1.18.4
+fastapi[standard]==0.134.0
+SQLAlchemy==2.0.47
+uvicorn[standard]==0.41.0
+python-dotenv==1.2.1
+pypandoc == 1.11
+pdfminer.six == 20221105
+elasticsearch== 8.14.0
+llama-cpp-python==0.1.83
+beautifulsoup4==4.12.2
+lxml==4.9.3
+python-multipart==0.0.6

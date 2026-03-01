@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware # IMPORTANTE
 from routers.routers import router
 from BD.connection import Base, engine
 from services.Docker import levantar_elasticsearch
@@ -8,7 +9,17 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Recuperacion de informacion con RAG")
 
+# Configuración CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(router, prefix="")
+
 levantar_elasticsearch()
 
 if __name__ == "__main__":

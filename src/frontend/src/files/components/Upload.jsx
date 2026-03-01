@@ -1,14 +1,21 @@
 import { useState, useRef } from "react";
 import "../styles/Upload.css";
 import { ButtonBack } from "../../common";
+import { uploadDocument } from "../../services";
 
 function Upload() {
   const [errorMessage, setErrorMessage] = useState(false);
   const [errorVisible, setErrorVisible] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const [file, setFile] = useState(null);
   const [dragActive, setDragActive] = useState(false);
   const inputRef = useRef(null);
+
+  const showDemoErrorMessage = () => {
+    setErrorText("Mensaje de error de demostración")
+    showErrorMessage();
+  }
 
   const showErrorMessage = () => {
     setErrorMessage(true);
@@ -52,18 +59,33 @@ function Upload() {
     inputRef.current.click();
   };
 
-  const uploadFile = () => {
+  const uploadFile = async () => {
     if (!file) {
-      showErrorMessage(true);
       return;
     }
+
+    try {
+    const response = await uploadDocument(file);
+
+    console.log("Documento subido correctamente:", response);
+
+    // Opcional: limpiar archivo después de subir
+    setFile(null);
+
+    // Opcional: mostrar mensaje de éxito si quieres
+    // alert("Archivo subido correctamente");
+  } catch (error) {
+    console.error("Error en la subida:", error);
+    setErrorText(error.message);
+    showErrorMessage();
+  }
   };
 
   return (
     <div className="upload">
       <div className="div-back-button">
         <ButtonBack className="upload-button-back" />
-        <button type="button" onClick={uploadFile}>
+        <button type="button" onClick={showDemoErrorMessage}>
           Error demo
         </button>
         <button type="button" className="upload-button" onClick={uploadFile}>
@@ -97,7 +119,7 @@ function Upload() {
       {errorMessage && (
         <div className={`upload-error ${errorVisible ? "show" : "hide"}`}>
           <span className="upload-error-message">
-            ⚠️ An error occurred in the server during the upload ⚠️
+            ⚠️{" "}{errorText}
           </span>
         </div>
       )}

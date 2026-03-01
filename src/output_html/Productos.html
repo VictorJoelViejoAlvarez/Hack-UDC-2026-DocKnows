@@ -1,0 +1,132 @@
+<p>¡Excelente nombre para la empresa! <strong>RAM-ON</strong> suena a
+una mezcla perfecta entre tecnología (Memoria RAM) y energía.</p>
+<p>Para que tu práctica en Odoo sea redonda y cubra todo el flujo
+(Compras -&gt; Fabricación -&gt; Ventas), vamos a estructurar los dos
+productos que mencionamos antes con datos concretos para tus proveedores
+y clientes.</p>
+<hr />
+<h2 id="producto-a-lámpara-led-ram-on-glow">1. Producto A: Lámpara LED
+“RAM-ON Glow”</h2>
+<p>Este producto es ideal para practicar el <strong>ensamblaje
+físico</strong>.</p>
+<h3 id="ficha-técnica-para-odoo">Ficha Técnica para Odoo:</h3>
+<ul>
+<li><strong>Componentes a Comprar (Proveedores):</strong></li>
+</ul>
+<ol type="1">
+<li><strong>Cable con interruptor:</strong> Proveedor <em>Electricidad
+Voltio S.A.</em></li>
+<li><strong>Bombilla LED E27:</strong> Proveedor
+<em>Ilumina-Tech</em>.</li>
+<li><strong>Base de madera tratada:</strong> Proveedor <em>Maderas del
+Norte</em>.</li>
+</ol>
+<ul>
+<li><strong>Producto Terminado:</strong> Lámpara RAM-ON Glow.</li>
+</ul>
+<h3 id="flujo-de-clientes">Flujo de Clientes:</h3>
+<ul>
+<li><strong>Cliente 1:</strong> <em>Muebles Diseño S.L.</em> (Compra al
+por mayor, 20 unidades).</li>
+<li><strong>Cliente 2:</strong> <em>Hotel Gran Estancia</em> (Compra 50
+unidades para sus habitaciones).</li>
+</ul>
+<hr />
+<h2 id="producto-b-mini-pc-ram-on-core">2. Producto B: Mini PC “RAM-ON
+Core”</h2>
+<p>Este producto es perfecto para practicar la gestión de
+<strong>componentes electrónicos y números de serie</strong>.</p>
+<h3 id="ficha-técnica-para-odoo-1">Ficha Técnica para Odoo:</h3>
+<ul>
+<li><strong>Componentes a Comprar (Proveedores):</strong></li>
+</ul>
+<ol type="1">
+<li><strong>Placa Base Compacta:</strong> Proveedor <em>Global Chips
+S.A.</em></li>
+<li><strong>Módulo Memoria RAM 8GB:</strong> Proveedor <em>Global Chips
+S.A.</em></li>
+<li><strong>Carcasa de Aluminio:</strong> Proveedor <em>Metales
+Industrial S.L.</em></li>
+<li><strong>Fuente de alimentación:</strong> Proveedor <em>Electricidad
+Voltio S.A.</em></li>
+</ol>
+<ul>
+<li><strong>Producto Terminado:</strong> Mini PC RAM-ON Core.</li>
+</ul>
+<h3 id="flujo-de-clientes-1">Flujo de Clientes:</h3>
+<ul>
+<li><strong>Cliente 1:</strong> <em>Academia de Informática Byte</em>
+(Necesita 15 unidades para su aula).</li>
+<li><strong>Cliente 2:</strong> <em>Oficina Co-Working Space</em> (Pide
+5 unidades para su recepción).</li>
+</ul>
+<hr />
+<h2 id="resumen-de-entidades-en-tu-odoo">Resumen de Entidades en tu
+Odoo</h2>
+<p>Para que no te pierdas al dar de alta la información, aquí tienes el
+mapa de actores:</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Nombre en Odoo</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Proveedores</strong></td>
+<td>Electricidad Voltio S.A.</td>
+<td>Suministra cables y fuentes.</td>
+</tr>
+<tr>
+<td></td>
+<td>Global Chips S.A.</td>
+<td>Suministra placas y RAM.</td>
+</tr>
+<tr>
+<td></td>
+<td>Maderas del Norte</td>
+<td>Suministra las bases de madera.</td>
+</tr>
+<tr>
+<td><strong>Clientes</strong></td>
+<td>Muebles Diseño S.L.</td>
+<td>Comprador de Lámparas.</td>
+</tr>
+<tr>
+<td></td>
+<td>Academia Informática Byte</td>
+<td>Comprador de Mini PCs.</td>
+</tr>
+<tr>
+<td><strong>Almacén</strong></td>
+<td>Materias Primas / Producto Terminado</td>
+<td>Ubicaciones de stock.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="cómo-configurarlo-en-odoo-rápidamente">¿Cómo configurarlo en
+Odoo rápidamente?</h3>
+<ol type="1">
+<li><strong>Crea los Componentes:</strong> Ve a <em>Inventario -&gt;
+Productos</em> y asegúrate de que en la pestaña de “Compra” tengan
+asignado su proveedor correspondiente y su precio de coste.</li>
+<li><strong>Crea la BoM (LdM):</strong> En el módulo de
+<em>Fabricación</em>, crea una Lista de Materiales para cada producto
+terminado añadiendo sus componentes.</li>
+<li><strong>Lanza el flujo:</strong> Crea un <strong>Pedido de Venta
+(SO)</strong> para la <em>Academia Byte</em>. Odoo te avisará de que no
+hay stock y te permitirá generar la <strong>Orden de Fabricación
+(MO)</strong>, que a su vez generará las <strong>Órdenes de Compra
+(PO)</strong> necesarias.</li>
+</ol>
+<p>¿Te gustaría que te redactara un ejemplo de cómo configurar el
+<strong>coste de producción</strong> (mano de obra) para que el precio
+final de la lámpara sea exacto?</p>

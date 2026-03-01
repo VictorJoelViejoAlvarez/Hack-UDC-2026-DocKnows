@@ -64,3 +64,41 @@ main {
   box-shadow: none;
   transform: scale(0.95);
 }
+
+#body-div-2 {
+  margin-top: 2em;
+}
+
+#body-div-2-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 100%;
+}
+
+/* Tarjetas */
+.info-card {
+  flex: 1;
+  background: rgba(120, 50, 156, 0.08);
+  border: 1px solid rgba(162, 97, 190, 0.4);
+  border-radius: var(--border-radius);
+  padding: 1.2em;
+  min-height: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(162, 97, 190, 0.25);
+}
+
+.info-card h3 {
+  margin-top: 0;
+  color: var(--purple-color);
+}
+
+.info-card p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}

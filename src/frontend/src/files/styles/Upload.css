@@ -1,0 +1,147 @@
+@import "../../common/styles/variables.css";
+
+.upload {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.drop-zone {
+  width: 400px;
+  height: 300px;
+  border: 2px dashed #ccc;
+  border-radius: 16px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.drop-zone:hover {
+  border-color: #a261be;
+  background-color: #f2e6ff;
+}
+
+.drop-zone.active {
+  border-color: #a261be;
+  background-color: #f2e6ff;
+}
+
+.upload-image {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.file-info {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.upload-button-back {
+  background-color: lightcoral;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size);
+  padding: 0.5em 1em 0.5em 1em;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    font-weight 0.2s ease,
+    transform 0.1s ease;
+}
+.upload-button-back:hover {
+  background-color: rgb(255, 60, 60);
+  box-shadow: 0 4px 12px rgba(162, 97, 190, 0.4);
+  color: whitesmoke;
+  transform: scale(1.05);
+}
+.upload-button-back:active {
+  background-color: red;
+  transform: scale(0.95);
+}
+
+.div-back-button {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+}
+
+.upload-button {
+  background-color: #a261be;
+  border: none;
+  border-radius: var(--border-radius);
+  color: whitesmoke;
+  font-size: var(--font-size);
+  padding: 0.5em 1em 0.5em 1em;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    font-weight 0.2s ease,
+    transform 0.1s ease;
+}
+
+.upload-button:hover {
+  background-color: #8e4fad;
+  box-shadow: 0 4px 12px rgba(162, 97, 190, 0.4);
+  transform: scale(1.05);
+}
+
+.upload-button:active {
+  background-color: #7a4296;
+  box-shadow: none;
+  transform: scale(0.95);
+}
+
+.upload-error {
+  border: 2px solid darkred;
+  background-color: lightcoral;
+  padding: 1em;
+  border-radius: var(--border-radius);
+  animation: popIn 0.4s ease;
+}
+.upload-error-message {
+  font-weight: bold;
+  color: rgb(60, 60, 60);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.upload-error.hide {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

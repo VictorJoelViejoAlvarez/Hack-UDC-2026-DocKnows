@@ -17,8 +17,28 @@ main {
   flex: 1;
   font-family: var(--font-family);
   font-size: var(--font-size);
-  padding: 6px;
+  padding: 6px 10px;
   width: auto;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.1s ease;
+}
+/* Hover */
+.search-input:hover {
+  border-color: #8e4fad;
+}
+
+/* Focus (cuando escribes) */
+.search-input:focus {
+  outline: none;
+  border-color: #a261be;
+  box-shadow: 0 0 0 3px rgba(162, 97, 190, 0.3);
+}
+
+/* Active (click presionado) */
+.search-input:active {
+  transform: scale(0.99);
 }
 
 .upload-file-button {

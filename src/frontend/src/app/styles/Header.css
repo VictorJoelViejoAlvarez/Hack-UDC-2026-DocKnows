@@ -11,6 +11,7 @@ header {
 
 #header-div-1 {
   align-items: center;
+  cursor: default;
   display: flex;
   width: max-content;
   gap: 1em;
@@ -24,4 +25,10 @@ header {
 #app-name {
   color: #78329c;
   margin: 0;
+  text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease;
+}
+#app-name:hover {
+  transform: scale(1.08);
+  text-shadow: 2px 2px 1px rgba(0, 255, 234, 0.685);
 }

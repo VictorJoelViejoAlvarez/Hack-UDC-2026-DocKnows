@@ -1,4 +1,4 @@
-from fastapi import UploadFile,File
+from fastapi import UploadFile, File
 from services.DocumentService import DocumentoService
 from fastapi import APIRouter
 from services.AiAnalizer import AiAnalizer
@@ -29,11 +29,12 @@ async def añadir_documento(file: UploadFile = File(...)):
             "document_id": document.document_id,
             "path": document.path_name,
             "indexed": success,
-            "index_status": index_status
+            "index_status": index_status,
         }
 
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
 
 @router.post("/documentos")
 async def añadir_documentos(files: list[UploadFile] = File(...)):
@@ -48,34 +49,33 @@ async def añadir_documentos(files: list[UploadFile] = File(...)):
             document = service.dao.create(html_path)
             success = indexer.index_document(document)
 
-            results.append({
-                "filename": file.filename,
-                "document_id": document.document_id,
-                "indexed": success
-            })
+            results.append(
+                {
+                    "filename": file.filename,
+                    "document_id": document.document_id,
+                    "indexed": success,
+                }
+            )
 
         except Exception as e:
-            results.append({
-                "filename": file.filename,
-                "error": str(e)
-            })
+            results.append({"filename": file.filename, "error": str(e)})
 
     return {"status": "ok", "results": results}
-
-
 
 
 @router.get("/analyze")
 def analyze_documents(query: str):
 
     try:
-        analizer = AiAnalizer(api_key="")
-    except ValueError as e:
-        return {"error": str(e)}
+        analizer = AiAnalizer()
+        summary, interest, sources = analizer.realizarQuery(query)
 
-    summary, interest = analizer.realizarQuery(query)
+        return {
+            "status": "ok",
+            "answer": summary,
+            "interest": interest,
+            "bibliography": sources
+        }
 
-    return {
-        "summary": summary,
-        "interest": interest
-    }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}

@@ -7,6 +7,7 @@ function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
+  const [interest, setInterest] = useState("");
   const [bibliography, setBibliography] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -18,12 +19,14 @@ function Home() {
       setLoading(true);
       setError("");
       setAnswer("");
+      setInterest("");
       setBibliography([]);
 
       const data = await analyzeDocuments(query);
 
       // Ajusta según lo que devuelva tu backend
       setAnswer(data.answer || "No se recibió respuesta.");
+      setInterest(data.interest || "No se recibió respuesta.");
       setBibliography(data.bibliography || []);
     } catch (err) {
       setError(err.message);
@@ -61,6 +64,13 @@ function Home() {
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: "red" }}>{error}</p>}
             {!loading && !error && <p>{answer}</p>}
+          </div>
+
+          <div className="info-card">
+            <h3>Interest</h3>
+            {loading && <p>Loading...</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {!loading && !error && <p>{interest}</p>}
           </div>
 
           <div className="info-card">
